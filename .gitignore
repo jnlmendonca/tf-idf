@@ -1,0 +1,6 @@
+# general things to ignore
+__pycache__/
+build/
+dist/
+*.egg-info/
+*.egg
