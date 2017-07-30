@@ -7,7 +7,7 @@ setup(
     name="tf_idf",
 
     # Release version
-    version="1.0",
+    version="1.1",
 
     # Description
     description="Simple TF-IDF lib",
