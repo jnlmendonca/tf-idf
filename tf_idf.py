@@ -152,14 +152,14 @@ class TfIdf():
         doc_term_dict = dict(doc_term_counter)
 
         doc_sums = {}
-        for word in doc_term_dict:
-            if word in self._tf_idf_results:
-                for document in self._tf_idf_results[word]:
+        for term in doc_term_dict:
+            if term in self._tf_idf_results:
+                for document in self._tf_idf_results[term]:
                     if document not in doc_sums:
                         doc_sums[document] = 0
 
-                    doc_sums[document] += doc_term_dict[word] * \
-                        self._score_word(word, document)
+                    doc_sums[document] += doc_term_dict[term] * \
+                        self._score_term(term, document)
 
         # Sort documents by score
         sorted_doc_sums = sorted(
@@ -306,7 +306,7 @@ class TfIdf():
 
         return inverse_document_frequencies
 
-    def _score_word(self, word, document):
-        """Word score function"""
+    def _score_term(self, term, document):
+        """Term score function"""
 
-        return self._tf_idf_results[word][document]
+        return self._tf_idf_results[term][document]
