@@ -159,7 +159,7 @@ class TfIdf():
                         doc_sums[document] = 0
 
                     doc_sums[document] += doc_term_dict[word] * \
-                        self._tf_idf_results[word][document]
+                        self._score_word(word, document)
 
         # Sort documents by score
         sorted_doc_sums = sorted(
@@ -305,3 +305,8 @@ class TfIdf():
         }
 
         return inverse_document_frequencies
+
+    def _score_word(self, word, document):
+        """Word score function"""
+
+        return self._tf_idf_results[word][document]
